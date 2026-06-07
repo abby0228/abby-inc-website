@@ -57,32 +57,14 @@
     </header>
 
     <!-- Hero Slideshow Section -->
-    <section class="hero-slideshow">
-        <div class="hero-slides">
-            <div class="hero-slide">
-                <div class="hero-slide-bg" style="background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTkyMCIgaGVpZ2h0PSI3MDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0iIzg4NzA1ZCIvPjwvc3ZnPg==');"></div>
+    <section class="hero">
+        <div class="container">
+            <div class="hero-text">
+                <div class="logo-text">abby</div>
             </div>
-            <div class="hero-slide">
-                <div class="hero-slide-bg" style="background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTkyMCIgaGVpZ2h0PSI3MDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0iIzY1NTU0NSIvPjwvc3ZnPg==');"></div>
+            <div class="hero-image">
+                <img src="images/cat-hero.png" alt="abby">
             </div>
-            <div class="hero-slide active">
-                <div class="hero-slide-bg" style="background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTkyMCIgaGVpZ2h0PSI3MDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0iIzU1NDU0MCIvPjwvc3ZnPg==');"></div>
-            </div>
-        </div>
-        
-        <!-- Navigation Arrows -->
-        <button class="hero-arrow hero-arrow-prev" aria-label="前のスライド">
-            <i class="fas fa-chevron-left"></i>
-        </button>
-        <button class="hero-arrow hero-arrow-next" aria-label="次のスライド">
-            <i class="fas fa-chevron-right"></i>
-        </button>
-        
-        <!-- Indicators -->
-        <div class="hero-indicators">
-            <button class="hero-indicator" data-slide="0" aria-label="スライド1"></button>
-            <button class="hero-indicator" data-slide="1" aria-label="スライド2"></button>
-            <button class="hero-indicator active" data-slide="2" aria-label="スライド3"></button>
         </div>
     </section>
 
@@ -908,7 +890,7 @@
                     </tr>
                     <tr>
                         <th>所在地</th>
-                        <td>〒150-0033<br>東京都渋谷区猿楽町9-8 アーバンパーク代官山Ⅰ 105</td>
+                        <td>〒150-0033<br>東京都渋谷区猿楽町9-8 アーバンパーク代官山Ⅰ 105号</td>
                     </tr>
                     <tr>
                         <th>TEL</th>
@@ -920,7 +902,7 @@
                     </tr>
                     <tr>
                         <th>取引銀行</th>
-                        <td>楽天銀行<br>GMOあおぞらネット銀行</td>
+                        <td>楽天銀行</td>
                     </tr>
                     <tr>
                         <th>許認可</th>
@@ -1054,73 +1036,6 @@
             });
         });
 
-        // Hero Slideshow
-        let currentSlide = 2;
-        const slides = document.querySelectorAll('.hero-slide');
-        const indicators = document.querySelectorAll('.hero-indicator');
-        const totalSlides = slides.length;
-        let slideInterval;
-
-        function showSlide(index) {
-            // Remove active class from all slides and indicators
-            slides.forEach(slide => slide.classList.remove('active'));
-            indicators.forEach(indicator => indicator.classList.remove('active'));
-            
-            // Add active class to current slide and indicator
-            slides[index].classList.add('active');
-            indicators[index].classList.add('active');
-            
-            currentSlide = index;
-        }
-
-        function nextSlide() {
-            let next = (currentSlide + 1) % totalSlides;
-            showSlide(next);
-        }
-
-        function prevSlide() {
-            let prev = (currentSlide - 1 + totalSlides) % totalSlides;
-            showSlide(prev);
-        }
-
-        // Auto slide every 5 seconds
-        function startSlideshow() {
-            slideInterval = setInterval(nextSlide, 5000);
-        }
-
-        function stopSlideshow() {
-            clearInterval(slideInterval);
-        }
-
-        // Arrow buttons
-        document.querySelector('.hero-arrow-prev').addEventListener('click', () => {
-            prevSlide();
-            stopSlideshow();
-            startSlideshow();
-        });
-
-        document.querySelector('.hero-arrow-next').addEventListener('click', () => {
-            nextSlide();
-            stopSlideshow();
-            startSlideshow();
-        });
-
-        // Indicator buttons
-        indicators.forEach((indicator, index) => {
-            indicator.addEventListener('click', () => {
-                showSlide(index);
-                stopSlideshow();
-                startSlideshow();
-            });
-        });
-
-        // Start slideshow
-        startSlideshow();
-
-        // Pause on hover
-        const heroSlideshow = document.querySelector('.hero-slideshow');
-        heroSlideshow.addEventListener('mouseenter', stopSlideshow);
-        heroSlideshow.addEventListener('mouseleave', startSlideshow);
 
         // ブランド順自動ソート機能
         function extractBrandName(productNameElement) {

@@ -130,107 +130,116 @@ img {
 }
 
 /* ========================================
-   Hero Slideshow
+   Hero Section
    ======================================== */
-.hero-slideshow {
+.hero {
     position: relative;
     min-height: 600px;
+    background: #d4a827;
+    display: flex;
+    align-items: center;
+    padding: 0;
     overflow: hidden;
 }
 
-.hero-slides {
-    position: relative;
-    width: 100%;
-    height: 100%;
-}
-
-.hero-slide {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    min-height: 600px;
-    opacity: 0;
-    transition: opacity 1s ease-in-out;
+.hero .container {
     display: flex;
     align-items: center;
-    justify-content: center;
-}
-
-.hero-slide.active {
-    opacity: 1;
-    position: relative;
-}
-
-.hero-slide-bg {
-    position: absolute;
-    top: 0;
-    left: 0;
+    justify-content: space-between;
     width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-position: center;
-    z-index: 1;
+    max-width: 100%;
+    padding: 0;
 }
 
-.hero-content {
-    position: relative;
+.hero-text {
+    flex: 0 0 40%;
+    padding-left: 8%;
     z-index: 2;
-    max-width: 900px;
-    padding: 0 20px;
-    text-align: center;
-    color: var(--color-white);
 }
 
-.hero-title-en {
-    font-size: 56px;
-    font-weight: 300;
-    letter-spacing: 4px;
-    margin-bottom: 16px;
-    color: var(--color-white);
+.hero-text .logo-text {
+    font-size: 6rem;
+    font-weight: 700;
+    color: white;
+    margin: 0;
+    letter-spacing: 0.05em;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    text-transform: lowercase;
 }
 
-.hero-title-jp {
-    font-size: 24px;
-    font-weight: 400;
-    letter-spacing: 2px;
-    margin-bottom: 16px;
-    color: var(--color-white);
+.hero-text h1 {
+    display: none;
 }
 
-.hero-description {
-    font-size: 16px;
-    font-weight: 300;
-    letter-spacing: 1px;
-    margin-bottom: 40px;
-    color: var(--color-white);
+.hero-text .subtitle {
+    display: none;
 }
 
-.hero-buttons {
+.hero-button {
+    display: none;
+}
+
+.hero-image {
+    flex: 0 0 60%;
     display: flex;
-    gap: 20px;
-    justify-content: center;
-}
-
-/* Hero Arrows */
-.hero-arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 10;
-    background: rgba(255, 255, 255, 0.2);
-    border: 1px solid rgba(255, 255, 255, 0.5);
-    color: var(--color-white);
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    cursor: pointer;
-    font-size: 18px;
-    display: flex;
+    justify-content: flex-end;
     align-items: center;
-    justify-content: center;
-    transition: var(--transition);
+    height: 600px;
 }
+
+.hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* Hero Section - Responsive */
+@media (max-width: 768px) {
+    .hero {
+        min-height: auto;
+        padding: 40px 0 0 0;
+    }
+    
+    .hero .container {
+        flex-direction: column;
+        padding: 0;
+    }
+    
+    .hero-text {
+        flex: 1;
+        width: 100%;
+        padding: 40px 20px;
+        text-align: center;
+    }
+    
+    .hero-text .logo-text {
+        font-size: 3.5rem;
+    }
+    
+    .hero-image {
+        flex: 1;
+        width: 100%;
+        height: 400px;
+    }
+    
+    .hero-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-text .logo-text {
+        font-size: 2.5rem;
+    }
+    
+    .hero-image {
+        height: 300px;
+    }
+}
+
 
 .hero-arrow:hover {
     background: rgba(255, 255, 255, 0.4);
