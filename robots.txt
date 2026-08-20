@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://abby-inc.com/sitemap.xml
